@@ -120,25 +120,36 @@ loadMoreButton.addEventListener('click', () => {
 // Load initial 4 feed cards
 loadLimitedFeedCards(4);
 
-
-
 // Switch from light mode to dark mode function
 const switchInput = document.querySelector('.switch input');
 // event listener for making a change on the toggle button
-switchInput.addEventListener('change', toggleMode);
-
-function toggleMode() {
-  if (switchInput.checked) {
+switchInput.addEventListener('change', toggleMode => {
+ if (switchInput.checked) {
     enableDarkMode();
   } else {
     enableLightMode();
   }
-}
+});
 
+//Function for dark mode
 function enableDarkMode() {
   document.body.classList.add('dark-mode');
 }
-
+//Function for light mode
 function enableLightMode() {
   document.body.classList.remove('dark-mode');
 }
+
+// Toggle up button for going to the top of the page
+const toggleUpBtn = document.getElementById('toggleUpBtn');
+// Hide the toggle button for 1 page height
+window.addEventListener('scroll', () => {
+  toggleUpBtn.style.display = window.pageYOffset > 100 ? 'block' : 'none';
+});
+//Function for toggle up button for going to the top of the page
+toggleUpBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
