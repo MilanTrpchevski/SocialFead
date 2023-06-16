@@ -1,13 +1,12 @@
 let loadedCards = 0; 
-
-function createFeedCard(data) { // function that generates the cards
+// Function that generates the cards
+function createFeedCard(data) { 
   const feedContainer = document.getElementById('feedContainer');
     /* With the following code we are creating elements and appending them to the DOM.
     At the same time we are giving them an class and id so we can style them more easly.
-  */
+    */
+
   // Append profile image and author name to the author container
-
-
   const cardContainer = document.createElement('div');
   cardContainer.classList.add('card');
   cardContainer.id = 'feedCard';
@@ -82,20 +81,19 @@ function createFeedCard(data) { // function that generates the cards
   // Append the card container to the feed container
   feedContainer.appendChild(cardContainer);
 }
- 
+// Function that will only load the limited amount of cards
 function loadLimitedFeedCards(limit) {
 
  fetch('data.json')
     .then(response => response.json())
     .then(jsonData => {
-      // Iterate over the JSON data and create feed cards up to the limit
       const startIndex = loadedCards;
+      //   Get the minimum out of the 2 numbers
       const endIndex = Math.min(loadedCards + limit, jsonData.length);
-
+      // Iterate over the JSON data and create feed cards up to the limit
       for (let i = startIndex; i < endIndex; i++) {
         createFeedCard(jsonData[i]);
       }
-
       loadedCards += limit;
 
       // Show/hide the "Load More" button based on the number of loaded cards
@@ -107,7 +105,7 @@ function loadLimitedFeedCards(limit) {
       }
     })
     .catch(error => {
-      console.error('Error fetching JSON data:', error);
+      console.error('Error: ', error);
     });
 }
 
