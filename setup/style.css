@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body {
+    background: #fff;
+    font-family: 'Poppins',Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header-container {
+    text-align: center;
+    padding: 10px;
+}
+
+#layout-container {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url("images/pexels-chevanon-photography-325044.jpg") center/cover no-repeat fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+  #layout-container h3{
+    color: #fff;
+font-weight: 300;
+letter-spacing: 4px;
+text-transform: uppercase;
+margin-top: 1.5rem;
+  }
+/* Switch For Dark and Light Mode */
+.dark-mode {
+  background-color: #000;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+  
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffbe0b;
+    transition: .4s;
+}
+  
+.slider:before {
+    font-family: FontAwesome;
+    position: absolute;
+    content: "\f185";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input:checked + .slider:before {
+    content: "\f186";
+}
+  
+input:checked + .slider {
+    background-color: #000000;
+}
+  
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+  
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
+/* CSS Styles for the feed cards */
+#feedContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100vw;  
+  align-items: center;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  width: 50%;
+  margin-bottom: 20px;
+  border-radius: 3%;
+  max-width: 600px;
+  background-image: url('./images/pexels-dzenina-lukac-754194.jpg');
+  background-size: cover;
+  margin: 50px;
+}
+
+#image {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+  max-height: 400px;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+  
+.caption {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+#profileImage {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.metadata {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.likes {
+  font-weight: bold;
+  border: 1px solid yellowgreen;
+  border-radius: 5%;
+  padding: 10px;
+}
+.likes::before{
+  content: '👍';
+  padding: 10px;
+}
+.date {
+  color: #888;
+}
+.source {
+  margin: 0 auto;
+  padding: 10px;
+}
+.sourceLink {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Additional styling for the "Load More" button */
+#loadMoreButton {
+  display: block;
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: rgba(255, 0, 0, 0.5);
+  color: black;
+  font-weight: bold;
+  font-size: medium;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 200px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+#loadMoreButton:hover {
+  background-color: lightgreen;
+}
+  
+.bubble-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -50px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 0, 0, 0.5);
+  animation: float 4s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
