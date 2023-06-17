@@ -16,7 +16,7 @@ function createFeedCard(data) {
     image.id = 'image';
     image.src = data.image;
     image.alt = 'Image';
-
+    image.classList.add('image-card')
     // create the caption element
     const caption = document.createElement('div');
     caption.classList.add('caption');
@@ -103,6 +103,7 @@ function loadLimitedFeedCards(limit) {
       } else {
         loadMoreButton.style.display = 'block';
       }
+      makeImagePopUp(); // Call the function to enable image popup after the cards are loaded
     })
     .catch(error => {
       console.error('Error: ', error);
@@ -138,9 +139,8 @@ function enableLightMode() {
   document.body.classList.remove('dark-mode');
 }
 
-// Toggle up button for going to the top of the page
+// Tuggle up functionalities
 const toggleUpBtn = document.getElementById('toggleUpBtn');
-
 // Hide the toggle button for 1 page height
 window.addEventListener('scroll', () => {
   toggleUpBtn.style.display = window.pageYOffset > 100 ? 'block' : 'none';
@@ -153,3 +153,31 @@ toggleUpBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+// Function for image lightbox
+
+function makeImagePopUp() {
+    const cardImages = document.getElementsByClassName('image-card');
+
+    const imagePopup = document.getElementById('imagePopup');
+    const popupImage = document.getElementById('popupImage');
+    const cancelButton = document.getElementById('cancelButton');
+    // iterate through the images and add event listeners for click
+    for (let i = 0; i < cardImages.length; i++) {
+        cardImages[i].addEventListener('click', function () {
+        const imageUrl = this.getAttribute('src');
+        popupImage.setAttribute('src', imageUrl);
+        imagePopup.style.display = 'block';
+        });
+    }
+
+    // Hide the popup window when clicked on the button
+    cancelButton.addEventListener('click', function () {
+        imagePopup.style.display = 'none';
+    });
+    // hide the popup window but when you click on the image and not the button
+    popupImage.addEventListener('click', function () {
+        imagePopup.style.display = 'none';
+});
+}
+makeImagePopUp();
