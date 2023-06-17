@@ -1,3 +1,8 @@
+// Hide the loading page when all elements have finished loading
+document.addEventListener('DOMContentLoaded', () => {
+  const loadingOverlay = document.getElementById('loading');
+  loadingOverlay.style.display = 'none';
+});
 let loadedCards = 0; 
 // Function that generates the cards
 function createFeedCard(data) { 
