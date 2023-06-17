@@ -267,16 +267,22 @@ input:checked + .slider:before {
 
 /* Phone Version Start */
 
-@media(min-width: 450px){
+@media(min-width: 350px){
   .card{
     width: 95%;
   }
   #image {
-    height: 250px;
+    height: 250px; 
+    
+  }
+  .likes{
+    min-width: 60px;
+    margin: 10px;
+    text-align: center;
   }
 }
 /* Tablet and screens */
-@media(min-width: 450px){
+@media(min-width: 650px){
   .card{
     width: 95%;
   }

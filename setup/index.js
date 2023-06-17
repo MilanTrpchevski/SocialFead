@@ -1,85 +1,85 @@
 let loadedCards = 0; 
 // Function that generates the cards
 function createFeedCard(data) { 
-  const feedContainer = document.getElementById('feedContainer');
+    const feedContainer = document.getElementById('feedContainer');
     /* With the following code we are creating elements and appending them to the DOM.
     At the same time we are giving them an class and id so we can style them more easly.
     */
 
-  // Append profile image and author name to the author container
-  const cardContainer = document.createElement('div');
-  cardContainer.classList.add('card');
-  cardContainer.id = 'feedCard';
+    // Append profile image and author name to the author container
+    const cardContainer = document.createElement('div');
+    cardContainer.classList.add('card');
+    cardContainer.id = 'feedCard';
 
-  // Create the image element
-  const image = document.createElement('img');
-  image.id = 'image';
-  image.src = data.image;
-  image.alt = 'Image';
+    // Create the image element
+    const image = document.createElement('img');
+    image.id = 'image';
+    image.src = data.image;
+    image.alt = 'Image';
 
-  // create the caption element
-  const caption = document.createElement('div');
-  caption.classList.add('caption');
-  caption.id = 'caption';
-  caption.textContent = data.caption;
+    // create the caption element
+    const caption = document.createElement('div');
+    caption.classList.add('caption');
+    caption.id = 'caption';
+    caption.textContent = data.caption;
 
-  // Create the author container
-  const authorContainer = document.createElement('div');
-  authorContainer.classList.add('author');
+    // Create the author container
+    const authorContainer = document.createElement('div');
+    authorContainer.classList.add('author');
 
-  // Create the profile image element
-  const profileImage = document.createElement('img');
-  profileImage.id = 'profileImage';
-  profileImage.src = data.profile_image;
-  profileImage.alt = 'Profile Image';
+    // Create the profile image element
+    const profileImage = document.createElement('img');
+    profileImage.id = 'profileImage';
+    profileImage.src = data.profile_image;
+    profileImage.alt = 'Profile Image';
 
-  // Create the author name element
-  const authorName = document.createElement('div');
-  authorName.classList.add('name');
-  authorName.id = 'authorName';
-  authorName.textContent = data.name;
+    // Create the author name element
+    const authorName = document.createElement('div');
+    authorName.classList.add('name');
+    authorName.id = 'authorName';
+    authorName.textContent = data.name;
 
-  // Append profile image and author name to the author container
-  authorContainer.append(profileImage, authorName);
+    // Append profile image and author name to the author container
+    authorContainer.append(profileImage, authorName);
 
-  // Create the metadata container
-  const metadataContainer = document.createElement('div');
-  metadataContainer.classList.add('metadata');
+    // Create the metadata container
+    const metadataContainer = document.createElement('div');
+    metadataContainer.classList.add('metadata');
 
-  // Create the likes element
-  const likes = document.createElement('span');
-  likes.classList.add('likes');
-  likes.id = 'likes';
-  likes.textContent = data.likes;
+    // Create the likes element
+    const likes = document.createElement('span');
+    likes.classList.add('likes');
+    likes.id = 'likes';
+    likes.textContent = data.likes;
 
-  // Create the date element
-  const date = document.createElement('span');
-  date.classList.add('date');
-  date.id = 'date';
-  date.textContent = data.date;
+    // Create the date element
+    const date = document.createElement('span');
+    date.classList.add('date');
+    date.id = 'date';
+    date.textContent = data.date;
 
-  // Append likes and date to the metadata container
-  metadataContainer.append(likes, date);
+    // Append likes and date to the metadata container
+    metadataContainer.append(likes, date);
 
-  // Create the source container
-  const sourceContainer = document.createElement('div');
-  sourceContainer.classList.add('source');
+    // Create the source container
+    const sourceContainer = document.createElement('div');
+    sourceContainer.classList.add('source');
 
-  // Create the source link element
-  const sourceLink = document.createElement('a');
-  sourceLink.id = 'sourceLink';
-  sourceLink.href = data.source_link;
-  sourceLink.textContent = 'View on ' + data.source_type;
+    // Create the source link element
+    const sourceLink = document.createElement('a');
+    sourceLink.id = 'sourceLink';
+    sourceLink.href = data.source_link;
+    sourceLink.textContent = 'View on ' + data.source_type;
 
-  // Append source link to the source container
-  sourceContainer.appendChild(sourceLink);
+    // Append source link to the source container
+    sourceContainer.appendChild(sourceLink);
 
-  // Append all the elements to the card container
-  cardContainer.append(image, caption, authorContainer, metadataContainer, sourceContainer);
+    // Append all the elements to the card container
+    cardContainer.append(image, caption, authorContainer, metadataContainer, sourceContainer);
 
-  
-  // Append the card container to the feed container
-  feedContainer.appendChild(cardContainer);
+
+    // Append the card container to the feed container
+    feedContainer.appendChild(cardContainer);
 }
 // Function that will only load the limited amount of cards
 function loadLimitedFeedCards(limit) {
@@ -140,10 +140,12 @@ function enableLightMode() {
 
 // Toggle up button for going to the top of the page
 const toggleUpBtn = document.getElementById('toggleUpBtn');
+
 // Hide the toggle button for 1 page height
 window.addEventListener('scroll', () => {
   toggleUpBtn.style.display = window.pageYOffset > 100 ? 'block' : 'none';
 });
+
 //Function for toggle up button for going to the top of the page
 toggleUpBtn.addEventListener('click', () => {
     window.scrollTo({
